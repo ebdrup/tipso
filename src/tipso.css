@@ -10,8 +10,10 @@
 	border-radius: 6px;
 	z-index: 9999;
 }
-.tipso_style{
+.tipso_style_cursor{
 	cursor: help;
+}
+.tipso_style_border{
 	border-bottom: 1px dotted;
 }
 .tipso_title {

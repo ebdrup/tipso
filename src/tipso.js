@@ -27,6 +27,8 @@
       titleColor        : '#ffffff',
       titleContent      : '',           //Content of the title bar
       showArrow         : true,
+      showCursor        : true,
+      showBorder        : true,
       position          : 'top',
       width             : 200,
       maxWidth          : '',
@@ -110,7 +112,13 @@
       var obj = this,
         $e = this.$element,
         $doc = this.doc;
-      $e.addClass('tipso_style').removeAttr('title');
+      if (obj.settings.showCursor) {
+        $e.addClass('tipso_style_cursor');
+      }
+      if (obj.settings.showBorder) {
+        $e.addClass('tipso_style_border');
+      }
+      $e.removeAttr('title');
 
       if (obj.settings.tooltipHover) {
         var waitForHover = null,
@@ -297,7 +305,9 @@
       $e.off('.' + pluginName);
       $win.off('resize' + '.' + pluginName, null, 'tipsoResizeHandler');
       $e.removeData(pluginName);
-      $e.removeClass('tipso_style').attr('title', this._title);
+      $e.removeClass('tipso_style_cursor');
+      $e.removeClass('tipso_style_border');
+      $e.attr('title', this._title);
     },
     titleContent: function() {
         var content,
